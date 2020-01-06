@@ -1,0 +1,83 @@
+.top-line{
+  background-color: $blue;
+  color:white;
+  &.ng {
+    background-image: url('../images/snow.png');
+    background-repeat: repeat;
+
+  }
+  &__adress{display:inline-block;margin-left:1rem;line-height: 3rem;}
+  &__log-form{background: $strongColor}
+  &__phone{display:inline-block;line-height: 3rem;font-weight:700}
+  &__registration {display:inline-block;line-height: 3rem;cursor:pointer;
+    &__profile{
+      color: white;
+      text-decoration: none;
+      &:hover{color: white;
+        text-decoration: none;}
+    }
+  }
+  &__login {display:inline-block;line-height: 3rem;margin-right:1rem;cursor:pointer; }
+}
+
+
+@media (max-width: $screen-xs-max) {
+  .top-line{
+    background-color: $blue;
+    color:white;
+    &__logo{display:none}
+    &__adress{margin-left:0rem;line-height: 2rem;display: block;}
+    &__log-form{background: $strongColor}
+    &__phone{font-size: 1.5rem}
+    &__phone-icons, .icon-log-in, .icon-user{width: 1.5rem; height:1.5rem}
+    &__registration {}
+    &__login {line-height: 3.3rem;margin-right:1rem;}
+  }
+
+}
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .top-line {
+    position:relative;
+    &__phone{
+      font-size:1.33rem;
+      display:block;
+      line-height: 2rem;
+    }
+    &__phone-icons{
+      width:1.33rem;
+      height:1.33rem;
+    }
+    &__adress{
+      line-height: 2rem;
+      margin-left:0;
+    }
+    &__log-form {
+      text-align: right;
+    }
+    &__login {display:inline-block;line-height: 3rem;margin-right:1rem;}
+    &__logo {
+      position:absolute;
+      right:15px;
+      top:50%;
+      transform: translateY(-50%);
+      color:white;
+      width:8rem;
+      fill: currentColor;
+    }
+  }
+
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .top-line{
+    &__logo {
+      display:none;
+    }
+  }
+}
+@media (min-width: $screen-lg-min) {
+  .top-line{
+    &__logo {
+      display:none;
+    }
+  }
+}

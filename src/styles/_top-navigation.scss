@@ -1,0 +1,235 @@
+.top-navigation{
+  margin-top: 1.5rem;
+  &__navbar-toggle{
+    margin:0;
+    padding:0;
+    .icon-bar {
+      border:2px solid $blue;
+      height: 6px;
+      width:33px;
+    }
+  }
+  &__logo {
+    display: inline-block;
+    width: 12rem;
+    height:3.4rem;
+    vertical-align: middle;
+    fill: currentColor;
+  }
+  &__search {
+    position:relative;
+    width:100%;
+  }
+  &__btn {
+    position:absolute;
+    right: 0.1rem;
+    top: 0.2rem;
+    background: transparent;
+    border: 0px;
+    color:$blue;
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+  &__nav{
+    display: -webkit-box; /* Android 4.3-, Safari без оптимизации */
+    -webkit-box-pack: justify; /* Android 4.3-, Safari без оптимизации */
+    display: -webkit-flex; /* оптимизация для Safari */
+    -webkit-justify-content: space-between; /* оптимизация для Safari */
+    display: flex;
+    justify-content: space-between;
+    text-align: justify; /* IE10-, Firefox 12-22 */
+    text-align-last: justify; /* IE10-, Firefox 12-22 */
+    /*text-justify: newspaper; /* IE7- */
+    /*zoom: 1; /* IE7- */
+  }
+  &__subnav{
+    background: white;
+    border-top: 1px solid $gray-border;
+    margin-top: 1rem;
+    position: absolute;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      left: 15px; top: -20px;
+      border: 10px solid transparent;
+      border-bottom: 10px solid $gray-border;
+    }
+    &::after {
+      border-bottom: 10px solid $gray-sub;
+      top: -19px;
+    }
+    .top-navigation__menu_item{
+      color:$gray-darker;
+      font-family: 'Roboto', sans-serif;
+      text-transform: none;
+      font-size: 1rem;
+      padding-left:15px;
+      padding-right:15px;
+      &:hover{
+        color:$red;
+        text-decoration: none;
+      }
+    }
+  }
+  &__menu{
+    margin-bottom:10px;
+    .navbar-collapse.collapse {
+      padding:0
+    }
+  }
+  &__menu_item{
+    padding-left:0;
+    padding-right:0;
+    text-transform: uppercase;
+    color:$gray-darker;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 1.12rem;
+    &:hover{
+      color:$red;
+      text-decoration: none;
+    }
+  }
+  &__cart{
+    float: right;
+    &_icons-wrapper{
+      position:relative;
+      display: inline-block;
+      a {text-decoration: none}
+      a:hover {text-decoration: none}
+    }
+    &_count{
+      position:absolute;
+      background: $blue;
+      display:inline-block;
+      @include border-radius(15px);
+      padding:3px 6px;
+      line-height: 1;
+      top: -0.2rem;
+      left: 1.22rem;
+      color:white;
+    }
+    &_price{
+      font-size: 1.3rem;
+      margin-left: 1rem;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .top-navigation{
+    &__logo {
+      display: block;
+      margin:1.5rem auto;
+    }
+    &__search {
+      position:relative;
+      width:100%;
+      margin:1.5rem 0;
+    }
+    &__btn {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    &__nav{
+      display: block; /* Android 4.3-, Safari без оптимизации */
+      justify-content: flex-start;
+      text-align: left; /* IE10-, Firefox 12-22 */
+      text-align-last: left; /* IE10-, Firefox 12-22 */
+    }
+    &__subnav{
+      position:relative;
+      float: none;
+      width: auto;
+      background: $gray-lighter;
+      border:0px;
+      border-top:1px solid $gray-border;
+      margin-top: 1rem;
+      box-shadow: none;
+      padding:0;
+      &::before, &::after {
+        left: 15px;
+      }
+      &::after {
+        border-bottom: 10px solid $gray-lighter;
+      }
+      .top-navigation__menu_item{
+        line-height:2.2rem;
+      }
+    }
+    &__menu { margin-top: 0.5rem;}
+    &__menu .navbar-collapse {
+      display:none;
+      padding:0.5rem 0 0 0;;
+      background: white;
+      border:1px solid $gray-border;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        right: 7px; top: -19px;
+        border: 10px solid transparent;
+        border-bottom: 10px solid $gray-border;
+      }
+      &::after {
+        border-bottom: 10px solid white;
+        top: -18px;
+      }
+    }
+    &__menu .in{
+      display:block;
+    }
+
+    &__menu_item{
+      padding-left:15px;
+      padding-right:15px;
+      display:block;
+      line-height:2.2rem;
+    }
+    &__cart{
+      float: left;
+      &_icons-wrapper{ position:relative;display: inline-block}
+      &_count{
+        position:absolute;
+        background: $blue;
+        display:inline-block;
+        @include border-radius(15px);
+        padding:3px 6px;
+        line-height: 1;
+        top: -0.2rem;
+        left: 1.22rem;
+        color:white;
+      }
+      &_price{
+        font-size: 1.3rem;
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .top-navigation{
+    &__logo {
+      display:none;
+    }
+    &__menu{
+      margin: 1rem 0;
+  }
+
+}
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .top-navigation{
+    &__menu_item{
+    }
+
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .top-navigation{
+    &__menu_item{
+      font-size: 1.3rem;
+    }
+
+  }
+}

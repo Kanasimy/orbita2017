@@ -1,0 +1,8 @@
+/.sass-cache/
+/bower_components/
+/node_modules/
+/.idea/
+/log/access_log
+/log/access_log_
+/log/log.txt
+/log/
