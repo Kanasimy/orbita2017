@@ -3,11 +3,6 @@
  */
 'use strict';
 
-
-// gulp-minify-css@1.2.4: Please use gulp-clean-css
-// npm WARN deprecated gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
-// npm WARN deprecated browserslist@0.4.0: Browserslist 2 could fail on reading Browserslist >3.0 config used in other tools.
-
 const gulp = require('gulp');
 const terser = require('gulp-terser');
 const sourcemaps = require('gulp-sourcemaps');
