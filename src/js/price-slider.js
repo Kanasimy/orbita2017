@@ -1,4 +1,4 @@
-//= ../../bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js
+//= ../../node_modules/bootstrap-slider/dist/bootstrap-slider.min.js
 (function($) {
     var priceSlider = document.getElementById('price-slider');
 if(priceSlider){

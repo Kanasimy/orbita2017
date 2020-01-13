@@ -2,11 +2,11 @@
 @import "compass/css3";
 
 @import "customVariables";
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-compass";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-compass";
 
-@import "../../bower_components/bootstrap-select/dist/css/bootstrap-select.css";
-@import "../../bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css";
+@import "../../node_modules/bootstrap-select/dist/css/bootstrap-select.css";
+@import "../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css";
 
 @import "fonts";
 @import "ng";

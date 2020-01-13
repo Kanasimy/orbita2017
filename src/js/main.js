@@ -163,8 +163,8 @@ window.onresize = function () {
     }, 500);
 }
 //= ../js/libs/owl.carousel.min.js
-//= ../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js
-//= ../../bower_components/bootstrap-select/dist/js/bootstrap-select.min.js
+//= ../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js
+//= ../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js
 //Доработать логику когда второй импут становиться меньшепервого
 //= price-slider.js
 //= headerLimit.js
