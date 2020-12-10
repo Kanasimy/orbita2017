@@ -7,7 +7,8 @@ const gulp = require('gulp');
 const terser = require('gulp-terser');
 const sourcemaps = require('gulp-sourcemaps');
 const rigger = require('gulp-rigger');
-const cssmin = require('gulp-clean-css'); // update to gulp-clean-css
+const cssmin = require('gulp-clean-css');
+const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const rimraf = require('rimraf');
@@ -25,6 +26,7 @@ var path = {
         js: 'build/js/',
         css: 'build/css/',
         img: 'build/images/, build/local/images/',
+        imgWebp: 'build/images/webp/',
         svg: 'build/images/svg/sprite.svg',
         fonts: 'build/fonts/'
     },
@@ -33,6 +35,7 @@ var path = {
         js: 'src/js/main.js',
         style: 'src/styles/*.scss',
         img: 'src/images/**/*.*, src/local/images/**/*.*',
+        imgToWebp: 'src/images/webp/**/*.{png,jpg,jpeg}',
         png: 'src/png-icon/*.*',
         svg: 'src/svg-icon/**/*.svg',
         svgImages: 'src/svg-images/**/*.svg',
@@ -94,6 +97,15 @@ gulp.task('style:build', function() {
         .pipe(cssmin())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
+        .pipe(browserSync.stream());
+});
+
+gulp.task('image:webp', function () {
+    return gulp.src(path.src.imgToWebp)
+        .pipe(webp({
+            quality: 80
+        }))
+        .pipe(gulp.dest(path.build.imgWebp))
         .pipe(browserSync.stream());
 });
 
@@ -186,6 +198,7 @@ gulp.task('image:sprites', gulp.parallel(
 
 gulp.task('image:build', gulp.series(
   'image:sprites',
+  'image:webp',
   'image:optimize',
   'svgImages:build'
 ));

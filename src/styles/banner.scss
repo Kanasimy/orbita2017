@@ -1,4 +1,5 @@
 @import "customVariables";
+
 .home-banner{
   background-color: white;
   padding: 0 30px;
@@ -16,7 +17,6 @@
     font-size:0;
     visibility:hidden
   }
-
   position: relative;
   &__description{position: relative}
   &__head {
@@ -117,7 +117,7 @@
     font-size:2.7rem;
   }
   /*Временные стили, можно удалять*/
-  &.sl, &.rvk, &.alca, &.tpv, &.opletki, &.frap{
+  &.sl, &.rvk, &.alca, &.tpv, &.opletki, &.frap, &.m8-20{
     .home-banner__btn {
       position: static !important;
     }
@@ -151,7 +151,6 @@
       }
     }
   }
-
   &.m1 {
 
     .home-banner__head {
@@ -195,11 +194,22 @@
     background: url(/images/banner/ng-19.jpg) no-repeat right top;
     background-size: cover;
   }
+  &.m8-20 {
+    background: url(/images/banner/m8-20.jpg) no-repeat right top;
+    background-size: 100%;
+  }
 } 
 @media (max-width: $screen-xs-max) {
   .home-banner{
     background-color: white;
     position: relative;
+    &__holiday.m8-20 {
+      .home-banner__head{
+        margin-top: 1.5rem;
+        font-size: $font-size-large;
+      }
+      p {display:none}
+    }
     &__description{  }
     &__dividing{display: none;}
     &__fon{
@@ -283,6 +293,10 @@
         padding-bottom: 81%;
       }
     }
+    &.m8-20 {
+      background: url(/images/banner/m8-20.jpg) no-repeat right top;
+      background-size: 100%;
+    }
    /* &.ng {
       text-align: center;
       .sugrob {
@@ -315,6 +329,14 @@
 }
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   .home-banner{
+    &__holiday.m8-20 {
+      .home-banner__head{
+        margin-top:1.8rem;
+        line-height: 1.45;
+        font-size: $font-size-h3;
+      }
+      p {display: none}
+    }
     &__description{margin-bottom:1rem}
     &__img{
       position: absolute;
@@ -423,10 +445,20 @@
       background-size: 100%;
     }*/
 
+     &.m8-20 {
+       background: url(/images/banner/m8-20.jpg) no-repeat right top;
+      background-size: 100%;
+    }
   }
 }
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
   .home-banner{
+    &__holiday.m8-20 {
+      .home-banner__head{
+        margin-top:1.7rem;
+        font-size: $font-size-h3;
+      }
+    }
     &__fon {
       background: url(/images/banner/banner-fon.jpg) no-repeat right bottom;
       height:300px;
@@ -501,6 +533,11 @@
     padding-bottom: 26%;
     height:auto;
   }
+
+  &.m8-20 {
+    background: url(/images/banner/m8-20.jpg) no-repeat right top;
+    background-size: 100%;
+  }
 }
     &.m1{
       .home-banner__fon {
@@ -516,6 +553,11 @@
 @media (min-width: $screen-lg-min) {
   .home-banner{
     padding-bottom: 1rem;
+    &__holiday.m8-20 {
+      p {font-family: 'mon-amour', Sans-Serif;
+        font-size: 1.4rem;
+      }
+    }
     &__fon {
       background: url(/images/banner/banner-fon.jpg) no-repeat right bottom;
       height:300px;
@@ -592,5 +634,92 @@
         height:auto;
       }
     }
+    &.m8-20 {
+      background: url(/images/banner/m8-20.jpg) no-repeat right top;
+      background-size: 100%;
+    }
   }
+}
+
+/*TODO insert styles  */
+@media (min-width: 1340px){
+  .home-banner.tpv .home-banner__fon {
+    background: url(/images/banner/tpv-1.jpg) right bottom no-repeat;
+    background-size: contain;
+    height: 310px;
+    position: relative;
+  }}
+@media (max-width: 1339px) and (min-width: 1000px){
+  .home-banner.tpv .home-banner__fon {
+    background: url(/images/banner/tpv-1.jpg) right bottom no-repeat;
+    background-size: contain;
+    height: 310px;
+    position: relative;
+  }}
+
+@media (min-width: 1340px){
+  .home-banner.mebel .home-banner__fon {
+    background: url(/local/images/banner/mebel.jpg) right bottom no-repeat;
+    background-size: contain;
+    height: 310px;
+    position: relative;
+  }
+  .home-banner.shetki .home-banner__fon {
+    background: url(/images/banner/shetki.jpg) right bottom no-repeat;
+    background-size: contain;
+    height: 310px;
+    position: relative;
+  }
+  .home-banner.lopata .home-banner__fon {
+    background: url(/local/images/banner/lopata.jpg) right bottom no-repeat;
+    background-size: contain;
+    height: 350px;
+    position: relative;
+  }
+}
+@media (max-width: 1339px) and (min-width: 1000px){
+
+  .home-banner.mebel .home-banner__fon {
+    background: url(/local/images/banner/mebel.jpg) right bottom no-repeat;
+    background-size: contain;
+    height: 310px;
+    position: relative;
+  }
+  .home-banner.shetki .home-banner__fon {
+    background: url(/images/banner/shetki.jpg) right bottom no-repeat;
+    background-size: contain;
+    height: 310px;
+    position: relative;
+  }
+  .home-banner.lopata .home-banner__fon {
+    background: url(/local/images/banner/lopata.jpg) right bottom no-repeat;
+    background-size: contain;
+    height: 350px;
+    position: relative;
+  }
+}
+
+.home-banner.mebel .home-banner__btn, .home-banner.shetki .home-banner__btn, .home-banner.lopata .home-banner__btn {
+  position: static!important;
+}
+
+@media (max-width: 999px) and (min-width: 768px){
+  .home-banner.mebel .home-banner__fon  {
+    background: url(/local/images/banner/mebel.jpg) center bottom no-repeat;
+    background-size: contain;
+    height: 428px;
+  }
+  .home-banner.shetki .home-banner__fon  {
+    background: url(/images/banner/shetki.jpg) center bottom no-repeat;
+    background-size: contain;
+    height: 428px;
+  }
+  .home-banner.lopata .home-banner__fon  {
+    background: url(/local/images/banner/lopata.jpg) center bottom no-repeat;
+    background-size: contain;
+    height: 350px;
+  }
+}
+.home-banner-img {
+  padding:0;
 }

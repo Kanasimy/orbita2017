@@ -11,3 +11,113 @@ body.ng {
   }
     background: url("../images/body-ng.png") #e5e5e5;
 }
+.home-banner.ng{
+  .sugrob {
+    background: url(/images/sugrob.png) no-repeat center top;
+    left:0;
+    right:0;
+    top:-32px;
+    height:74px;
+    z-index: 100;
+    position: absolute;
+  }
+  .home-banner__head {
+    color:#ffffff;
+    text-shadow: 0px 1px 7px rgba(0, 0, 0, 0.8);
+  }
+  h3.home-banner__head{
+    margin-top:4px;
+    font-size: 24px;
+    line-height: 1.3;
+    color:#ffffff;
+    text-shadow: 0px 1px 7px rgba(0, 0, 0, 0.8);
+  }
+  .home-banner__fon {
+    background: transparent;
+  }
+  .home-banner__text p {
+    color:#ffffff;
+    font-size: 24px;
+    font-family: mon-amour, sans-serif;
+    text-shadow: 0px 1px 7px rgba(0, 0, 0, 0.8);
+  }
+  background: url(/local/images/banner/ng-20.jpg) no-repeat right top;
+  background-size: cover;
+}
+
+@media (min-width: 0px) and (max-width: 449px) {
+  .home-banner.ng .home-banner__text p {
+    display:none;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .home-banner.ng  .sugrob {
+    background: url(/images/sugrob.png) no-repeat center top;
+    left:0;
+    right:0;
+    top:-32px;
+    height:74px;
+    z-index: 100;
+    position: absolute;
+  }
+  .home-banner.ng   .home-banner__head {
+    color:#ffffff;
+    font-size: 43px;
+    margin:2.5rem 0 1rem 0;
+  }
+  .home-banner.ng  h3.home-banner__head{
+    color:#ffffff;
+    margin-top:4px;
+    font-size: 24px;
+    line-height: 1.3;
+    margin:1rem 0 1rem 0;
+  }
+  .home-banner.ng .home-banner__text{
+    padding-bottom: 3rem;
+    font-size: 24px;
+  }
+  .home-banner.ng .home-banner__text p {
+    color:#ffffff;
+    line-height: 1.3;
+    margin:1rem 0 1rem 0;
+  }
+  .home-banner.ng{
+    text-align: center;
+    background: url(/local/images/banner/ng-20-smart.jpg) no-repeat right top;
+    background-size: 100%;}
+}
+
+@media (min-width: 768px) and (max-width: 999px) {
+  .home-banner.ng{text-align: center;
+    padding-bottom: 1rem;}
+
+  .home-banner.ng .sugrob {
+    background: url(/images/sugrob.png) no-repeat center top;
+    left:0;
+    right:0;
+    top:-32px;
+    height:74px;
+    z-index: 100;
+    position: absolute;
+  }
+
+  .home-banner.ng .home-banner__head {
+    font-size: 43px;
+    margin:4rem 0 1rem 0;
+  }
+  .home-banner.ng  h3.home-banner__head{
+    margin-top:4px;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+  .home-banner.ng .home-banner__text p {
+    font-size: 24px;
+    line-height: 1.3;
+    margin:3rem 0 1rem 0;
+  }
+
+  .home-banner.ng{  background: url(/local/images/banner/ng-20-tab.jpg) no-repeat right top;
+    background-size: 100%;}
+}
+

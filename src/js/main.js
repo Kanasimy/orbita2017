@@ -271,7 +271,7 @@ window.onresize = function () {
     var headerItem = document.getElementsByClassName('catalog-item__header');
     for (var i = 0; i < headerItem.length; i++) {
         var stringHead = headerItem[i].innerHTML;
-        headerItem[i].innerHTML = stringHead.limit(60);
+        headerItem[i].innerHTML = stringHead.limit(160);
     }
 
     //модальные окна

@@ -60,6 +60,12 @@
       font-family: 'Ubuntu Condensed', sans-serif;
       margin-top:0.5rem;
     }
+    &__price span:nth-child(2) {color: #f44336;}
+
+    .catalog-item__price_old {
+      text-decoration: line-through;
+      text-decoration: #f44336 line-through;
+    }
 
     &__price_text{
       font-family: 'Roboto', sans-serif;
