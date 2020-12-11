@@ -18,15 +18,18 @@
     margin-bottom:1rem;
     &__images {
       width:100%;
-      margin-top: 0px;
+      max-width: 100px;
+      margin: 0px auto;
       display: block;
-      padding-top: 116%;
       position: relative;
       -webkit-transition: all 300ms ease;
       -moz-transition: all 300ms ease;
       -ms-transition: all 300ms ease;
       -o-transition: all 300ms ease;
       transition: all 300ms ease;
+      @media (max-width: $screen-xs-max) {
+        max-width: 500px;
+      }
     }
     &__images-box{
       position: relative;
@@ -73,6 +76,7 @@
     }
     &__price-mobile{display:none}
     &__price_old{
+      white-space: nowrap;
       display:inline-block;
       color:$gray;
       text-decoration: line-through;
@@ -81,6 +85,7 @@
       margin-right: 0.3rem;
     }
     &__price_new{
+      white-space: nowrap;
       display:inline-block;
       color:$strongColor;
       font-size:2rem;

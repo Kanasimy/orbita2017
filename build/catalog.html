@@ -97,7 +97,7 @@
                     <div class="collapse navbar-collapse" id="collapseExample">
                         <ul class="top-navigation__nav">
                             <li><a class="top-navigation__menu_item" href="">О компании</a></li>
-                            <li><a class="top-navigation__menu_item" href="">Каталог</a></li>
+                            <li><a class="top-navigation__menu_item" href="catalog.html">Каталог</a></li>
                             <li><a class="top-navigation__menu_item" href="">Доставка</a></li>
                             <li><a class="top-navigation__menu_item" href="">Как купить</a></li>
                             <li class="dropdown"><a class="top-navigation__menu_item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  href="">Акции</a>
@@ -164,21 +164,6 @@
                         <li class="active">Автоинструмент ЕРМАК , FALCO, Perfect Tools</li>
                     </ol>
             </div>
-            <div class="row">
-                <div class="col-md-9">
-
-                    <div class="catalog-header">
-                        <h1>
-                            <svg class="icon-catalog-header icon-instrument">
-                                <use xlink:href="/images/sprite.svg#instrument"></use>
-                            </svg>&nbsp;Автоинструмент ЕРМАК , FALCO, Perfect Tools
-                        </h1>
-
-                        <button class="btn catalog-header__btn btn-default">купить выбранное</button>
-                    </div>
-                </div>
-            </div>
-
             <div class="catalog-nav">
                 <div class="row">
                     <div class="col-md-3 col-sm-4">
@@ -224,6 +209,20 @@
                         </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-9">
+
+                    <div class="catalog-header">
+                        <h1>
+                            <svg class="icon-catalog-header icon-instrument">
+                                <use xlink:href="/images/sprite.svg#instrument"></use>
+                            </svg>&nbsp;Автоинструмент ЕРМАК , FALCO, Perfect Tools
+                        </h1>
+
+                        <button class="btn catalog-header__btn btn-default">купить выбранное</button>
+                    </div>
+                </div>
+            </div>
     <div class="row">
             <div class="col-md-9">
                     <div class="catalog-item ">
@@ -241,14 +240,19 @@
                                             <use xlink:href="/images/sprite.svg#hot"></use>
                                         </svg>
                                     </div>
-                                    <img class="catalog-item__images" src="../images/catalog/instrument.jpeg" alt="">
+                                    <picture>
+                                        <source srcset="../images/catalog/instrument_m.jpg" media="(min-width:  768px)">
+                                        <source srcset="../images/catalog/instrument.jpeg">
+                                        <img class="catalog-item__images" src="../images/catalog/instrument.jpeg" alt="">
+                                    </picture>
+                    
                                 </div>
                             </div>
                             <div class="col-sm-9">
                                 <div class="row">
                                     <div class="col-sm-8">
                                         <div class="catalog-item__description">
-                                            <h5 class="catalog-item__header">Набор профессионального инструмента, 88 предметов ЕРМАК КЛАССИК
+                                            <h5 class="catalog-item__header">Набор профессионального инструмента, 88 предметов
                                                 1/4"+1/2" (072)</h5>
                                         </div>
                                     </div>
