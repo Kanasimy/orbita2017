@@ -2,6 +2,7 @@
 /bower_components/
 /node_modules/
 /.idea/
+/build/
 /log/access_log
 /log/access_log_
 /log/log.txt

@@ -25,7 +25,7 @@ var path = {
         html: 'build/',
         js: 'build/js/',
         css: 'build/css/',
-        img: 'build/images/, build/local/images/',
+        img: 'build/images/',
         imgWebp: 'build/images/webp/',
         svg: 'build/images/svg/sprite.svg',
         fonts: 'build/fonts/'
@@ -35,7 +35,7 @@ var path = {
         js: 'src/js/main.js',
         style: 'src/styles/*.scss',
         img: 'src/images/**/*.*, src/local/images/**/*.*',
-        imgToWebp: 'src/images/webp/**/*.{png,jpg,jpeg}',
+        imgToWebp: 'src/images/banner/**/*.{png,jpg,jpeg}',
         png: 'src/png-icon/*.*',
         svg: 'src/svg-icon/**/*.svg',
         svgImages: 'src/svg-images/**/*.svg',
@@ -45,7 +45,7 @@ var path = {
         html: 'src/**/*.html',
         js: 'src/js/**/*.js',
         style: 'src/styles/**/*.scss',
-        img: 'src/images/**/*.*, src/local/images/**/*.*',
+        img: 'src/images/**/*.*',
         svg: 'src/svg-icon/**/*.svg',
         svgImages: 'src/svg-images/**/*.svg',
         fonts: 'src/fonts/**/*.*'
@@ -101,7 +101,7 @@ gulp.task('style:build', function() {
 });
 
 gulp.task('image:webp', function () {
-    return gulp.src(path.src.imgToWebp)
+    return gulp.src(path.src.img)
         .pipe(webp({
             quality: 80
         }))
@@ -129,16 +129,14 @@ gulp.task('fonts:build', function() {
 gulp.task('svgSprite:build', function () {
     return gulp.src(path.src.svg)
     // minify svg
-        .pipe(svgmin({
-            js2svg: {
-                pretty: true
-            }
-        }))
+    //     .pipe(svgmin({
+    //         js2svg: {
+    //             pretty: true
+    //         }
+    //     }))
         // remove all fill, style and stroke declarations in out shapes
         .pipe(cheerio({
             run: function ($) {
-                $('[fill]').removeAttr('fill');
-                $('[stroke]').removeAttr('stroke');
                 $('[style]').removeAttr('style');
             },
             parserOptions: {xmlMode: true}
