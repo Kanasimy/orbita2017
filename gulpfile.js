@@ -4,14 +4,16 @@
 'use strict';
 
 const gulp = require('gulp');
+const plumber = require("gulp-plumber");
 const terser = require('gulp-terser');
 const sourcemaps = require('gulp-sourcemaps');
 const rigger = require('gulp-rigger');
 const cssmin = require('gulp-clean-css');
 const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
+const imageminJpegRecompress = require('imagemin-jpeg-recompress');
+const imageminPngquant = require('imagemin-pngquant');
 const pngquant = require('imagemin-pngquant');
-const rimraf = require('rimraf');
 const compass = require('gulp-compass');
 const browserSync = require("browser-sync");
 const svgSprite = require('gulp-svg-sprite');
@@ -19,24 +21,23 @@ const pngSprite = require('gulp.spritesmith');
 const svgmin = require('gulp-svgmin');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
+const remove = require('gulp-clean');
 
 var path = {
     build: {
         html: 'build/',
         js: 'build/js/',
         css: 'build/css/',
-        img: 'build/images/',
-        imgWebp: 'build/images/webp/',
-        svg: 'build/images/svg/sprite.svg',
+        img: 'build/local/images/',
+        svg: 'build/local/images/svg/sprite.svg',
         fonts: 'build/fonts/'
     },
     src: {
         html: 'src/*.html',
         js: 'src/js/main.js',
         style: 'src/styles/*.scss',
-        img: 'src/images/**/*.*, src/local/images/**/*.*',
-        imgToWebp: 'src/images/banner/**/*.{png,jpg,jpeg}',
-        png: 'src/png-icon/*.*',
+        img: 'src/local/images/**/*.*',
+        imgToWebp: 'src/local/images/**/*.{png,jpg,jpeg}',
         svg: 'src/svg-icon/**/*.svg',
         svgImages: 'src/svg-images/**/*.svg',
         fonts: 'src/fonts/**/*.*'
@@ -63,13 +64,9 @@ const config = {
     logPrefix: "olga_yuzich"
 };
 
-// Clean
-gulp.task('clean', function () {
-    rimraf(path.clean);
-});
-
 gulp.task('html:build', function () {
     return gulp.src(path.src.html)
+        .pipe(plumber())
         .pipe(rigger())
         .pipe(gulp.dest(path.build.html))
         .pipe(browserSync.stream());
@@ -105,18 +102,21 @@ gulp.task('image:webp', function () {
         .pipe(webp({
             quality: 80
         }))
-        .pipe(gulp.dest(path.build.imgWebp))
+        .pipe(gulp.dest(path.build.img))
         .pipe(browserSync.stream());
 });
 
 gulp.task('image:optimize', function () {
     return gulp.src(path.src.img)
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()],
-            interlaced: true
-        }))
+        .pipe(plumber())
+        .pipe(imagemin([
+            imageminJpegRecompress({
+                progressive: true,
+                max: 85,
+                min: 75
+            }),
+            imageminPngquant({quality: '80'})
+        ]))
         .pipe(gulp.dest(path.build.img))
         .pipe(browserSync.stream());
 });
@@ -124,6 +124,12 @@ gulp.task('image:optimize', function () {
 gulp.task('fonts:build', function() {
     return gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts))
+});
+
+// Clean
+gulp.task('remove', function() {
+    return gulp.src(path.clean)
+        .pipe(remove());
 });
 
 gulp.task('svgSprite:build', function () {
@@ -161,19 +167,6 @@ gulp.task('svgSprite:build', function () {
         .pipe(browserSync.stream());
 });
 
-
-gulp.task('pngSprite:build', function() {
-    var spriteData =
-        gulp.src(path.src.png) // путь, откуда берем картинки для спрайта
-            .pipe(pngSprite({
-                imgName: '../images/sprite.png',
-                cssName: '_spritePng.scss'
-            }))
-
-    spriteData.css.pipe(gulp.dest('src/styles/')); // путь, куда сохраняем стили
-    return spriteData.img.pipe(gulp.dest('src/images/')); // путь, куда сохраняем картинку
-});
-
 gulp.task('svgImages:build', function () {
     return gulp.src(path.src.svgImages)
         // build svg sprite
@@ -190,11 +183,11 @@ gulp.task('svgImages:build', function () {
 
 
 gulp.task('image:sprites', gulp.parallel(
-  'svgSprite:build',
-  'pngSprite:build',
+  'svgSprite:build'
 ));
 
 gulp.task('image:build', gulp.series(
+  'remove',
   'image:sprites',
   'image:webp',
   'image:optimize',
@@ -205,8 +198,7 @@ gulp.task('build', gulp.parallel(
     'html:build',
     'js:build',
     'style:build',
-    'fonts:build',
-    'image:build',
+    'fonts:build'
 ));
 
 gulp.task('watchFiles', function () {
