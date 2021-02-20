@@ -15,7 +15,7 @@
     "font-awesome": "^4.7.0",
     "gulp-plumber": "^1.2.1",
     "imagemin-jpeg-recompress": "^7.0.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "natives": "^1.1.6",
     "normalize.css": "^8.0.1"
   },
