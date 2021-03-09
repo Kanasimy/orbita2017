@@ -2,7 +2,6 @@
 
 .home-banner{
   background-color: white;
-  padding: 0 30px;
   &__holiday {
     .home-banner__head {
       font-family:'mon-amour',Sans-Serif;
@@ -552,7 +551,6 @@
 }
 @media (min-width: $screen-lg-min) {
   .home-banner{
-    padding-bottom: 1rem;
     &__holiday.m8-20 {
       p {font-family: 'mon-amour', Sans-Serif;
         font-size: 1.4rem;
