@@ -163,7 +163,7 @@ gulp.task('svgSprite:build', function () {
                 }
             }
         }))
-        .pipe(gulp.dest('build/images/'))
+        .pipe(gulp.dest(path.build.img))
         .pipe(browserSync.stream());
 });
 
