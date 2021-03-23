@@ -158,6 +158,7 @@
           flex-grow: 1;
           width: 100%;
           text-align: center;
+          border-left-width: 0px;
         }
         &_btn {
           flex-grow: 0;
@@ -169,17 +170,18 @@
         text-align: center;
         display: inline-block;
         vertical-align: middle;
-        line-height: 1;
-        background-color: #ffffff;
+        line-height: 34px;
+        background-color: $white;
         color: $blue;
         text-align: center;
-        border-radius: 0;
         cursor: pointer;
         position: relative;
         transition: background 300ms ease,opacity 300ms ease;
-        border-top: 1px solid #d5d5d5;
-        border-bottom: 1px solid #d5d5d5;
-        border-right: none;
+        border: 1px solid $gray-border;
+        &:hover {text-decoration: none;}
+        &::before {
+          content: "-";
+        }
       }
     }
     &__btn {
@@ -187,7 +189,6 @@
       grid-column-end: 6;
       grid-row-start: 4;
       grid-row-end: 5;
-      .btn{width:100%}
     }
     .form-control + .catalog-item__count_btn {
       border-left: none;
@@ -244,36 +245,66 @@
     }
   }
 }
+
+/* table form */
+
 .catalog--table .catalog{
     &-item {
       display: flex;
       align-items: center;
-      .ac-custom {
+      gap: 0.5rem;
+      margin-bottom: 0;
+      border-bottom-width: 0px;
+      .catalog__icon {
+        border-width: 1.4rem;
+      }
+      .icons {
+        width: 1rem;
+        height: 1rem;
+        top: -1rem;
+        left: -1rem;
+      }
 
+      .popular__new {
+        font-size: 0.8rem;
+        top: -1.1rem;
+        left: -1.1rem;
+      }
+      .ac-custom {
+        position: relative;
+        z-index: 300;
       }
       .ac-custom .catalog-item__checkbox {
         input[type=checkbox], input[type=radio], label::before{
         }
       }
 
-      &__images {
+      &__images-box{
+        width: 60px;
+        flex-basis: 60px;
+        flex-shrink: 0;
         @media (max-width: $screen-xs-max) {
-          max-width: 400px;
+          display: none;
         }
       }
-      &__images-box{
-
-      }
       &__description{
+        flex-grow:2;
+        h5 {
+          font-size: 0.9rem;
+          @media (max-width: $screen-xs-max) {
+            font-size: 0.8rem;
+          }
+        }
+      }
 
-      }
-      &__header{
-      }
       &__kod * {
         display: none;
       }
       &__article, &__value {
         display: block;
+        @media (max-width: $screen-xs-max) {
+          font-size: 0.6rem;
+        }
       }
       &__name {
         display: none;
@@ -283,58 +314,88 @@
       }
       &__short-info--article{
         display: block;
+        flex-basis: 45px;
+        flex-shrink: 0;
       }
 
-      &__presence {
-
+      &__presence-text {
+        color: transparent;
+        font-size: 0;
       }
 
-      &__short-info{
-        &_value{
-        }
-        &_min,&_in-box{
-        }
-      }
+      //Price
+
       &__price {
-
-      }
-      &__price span:nth-child(2) {}
-
-      .catalog-item__price_old {
-      }
-
-      &__price_text{
+        flex-basis: 70px;
+        flex-shrink: 0;
       }
       &__price_old{
+        font-size:1rem;
+        margin-right: 0.3rem;
       }
       &__price_new{
+        font-size:1.33rem;
       }
-      &__count{
 
+      &__count{
+        flex-basis: 34px * 3;
+        width: 34px * 3;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @media (max-width: $screen-xs-max) {
+          flex-basis: 34px;
+        }
         .input-count{
-        flex-direction: row;
+          @media (max-width: $screen-xs-max) {
+            flex-direction: column;
+            justify-content: center;
+            .form-control {
+              border-top-width:0px;
+              border-bottom-width:0px;
+              border-left-width:1px;
+              height: 34px;
+            }
+          }
           .form-control {
-            width:40px;
+            font-size: 0.8rem;
+            padding: 0;
+            flex-grow: 1;
+            flex-basis: 34px;
           }
           &_btn {
-
             border: 1px solid #d5d5d5;
             border-bottom: none;
           }
         }
         &_btn{
-
+          flex-basis: auto;
+          width: 34px;
+          height: 34px;
+          flex-grow: 0;
+          &::before{
+            content:"";
+            display: inline-block;
+            background-image: url("../local/images/sprite.svg#arrow");
+          }
+          @media (max-width: $screen-xs-max) {
+            border: 1px solid $gray-border;
+          }
         }
 
       }
       .form-control + .catalog-item__count_btn {
-        border: 1px solid #d5d5d5;
-        border-top: none;
+        @media (max-width: $screen-xs-max) {
+          border: 1px solid #d5d5d5;
+          &::before{
+            content:"";
+          }
+        }
       }
       &__btn {
         .btn{
           line-height: 1;
           background: transparent;
+          padding: 0;
           &:hover, &:focus {
             border-color: transparent;
           }

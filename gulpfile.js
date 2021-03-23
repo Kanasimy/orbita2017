@@ -152,16 +152,10 @@ gulp.task('svgSprite:build', function () {
         // build svg sprite
         .pipe(svgSprite({
             mode: {
-                symbol: {
-                    sprite: '../sprite.svg',
-                    render: {
-                        scss: {
-                            dest:'../../../../src/styles/_sprite.scss',
-                            template: 'src/styles/templates/_sprite_template.scss'
-                        }
-                    }
+                stack: {
+                    sprite: "../sprite.svg"  //sprite file name
                 }
-            }
+            },
         }))
         .pipe(gulp.dest(path.build.img))
         .pipe(browserSync.stream());
