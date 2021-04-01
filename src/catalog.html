@@ -6,12 +6,20 @@
             </div>
             //= template/catalog-nav.html
             <div class="row">
-                <div class="col-md-9">
 
-                    <div class="catalog-header">
-                        <h1>
+                <div class="col-md-9">
+                    <ul class="catalog__toggle">
+                        <li><a class="js-toggle catalog__table-btn active" title="Табличная форма" href=""><svg width="20px" height="20px">
+                            <use xlink:href="../local/images/sprite.svg#table-view"></use>
+                        </svg></a></li>
+                        <li><a class="js-toggle catalog__block-btn" title="Расширенное отображение" href=""><svg width="20px" height="20px">
+                            <use xlink:href="../local/images/sprite.svg#block-view"></use>
+                        </svg></a></li>
+                    </ul>
+                    <div class="catalog-header__wrapper">
+                        <h1 class="catalog-header">
                             <svg class="icon-catalog-header icon-instrument">
-                                <use xlink:href="/images/sprite.svg#instrument"></use>
+                                <use xlink:href="../local/images/sprite.svg#instrument"></use>
                             </svg>&nbsp;Автоинструмент ЕРМАК , FALCO, Perfect Tools
                         </h1>
 

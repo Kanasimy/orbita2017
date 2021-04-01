@@ -142,6 +142,10 @@ function catalogTop() {
 
     document.addEventListener('click', closeSubMenu);
 }
+
+function changeToggle() {
+var toggleButtons = document.querySelectorAll("js-toggle")
+}
 formatPrice();
 catalogTop();
 

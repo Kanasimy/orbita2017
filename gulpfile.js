@@ -135,11 +135,11 @@ gulp.task('remove', function() {
 gulp.task('svgSprite:build', function () {
     return gulp.src(path.src.svg)
     // minify svg
-    //     .pipe(svgmin({
-    //         js2svg: {
-    //             pretty: true
-    //         }
-    //     }))
+        .pipe(svgmin({
+            js2svg: {
+                pretty: true
+            }
+        }))
         // remove all fill, style and stroke declarations in out shapes
         .pipe(cheerio({
             run: function ($) {
