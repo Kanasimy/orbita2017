@@ -61,7 +61,8 @@ const config = {
     tunnel: false,
     host: 'localhost',
     port: 3000,
-    logPrefix: "olga_yuzich"
+    logPrefix: "olga_yuzich",
+    browser: 'chrome'
 };
 
 gulp.task('html:build', function () {

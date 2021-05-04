@@ -12,6 +12,20 @@ function formatPrice() {
     }
 }
 
+function toggleSwitch(event) {
+    event.preventDefault();
+    console.log(this)
+}
+
+
+function toggle(toggleParent) {
+    let buttons = document.querySelectorAll(toggleParent + "__btn");
+    console.log(buttons);
+    for(let i=0; i<buttons.length; i++){
+        buttons[i].addEventListener('click',toggleSwitch);
+    }
+}
+
 /** Colls for catalog-top Depends on jquery**/
 //= ../js/liColumns.js
 
@@ -148,6 +162,8 @@ var toggleButtons = document.querySelectorAll("js-toggle")
 }
 formatPrice();
 catalogTop();
+// Переключения внешнего вида в каталоге
+toggle('.js-toggle');
 
 
 
@@ -199,8 +215,6 @@ window.onresize = function () {
             return false;
         });
     }
-
-
 
     //Вызовы функций
     //Кнопка наверх
