@@ -2,27 +2,35 @@
  * Created by Ольга on 28.02.2017.
  */
 
-/** Format Price**/
-/* Add $1&thinsp */
+/** Format Price
+ * Add $1&thinsp **/
 (function () {
     let prices = document.getElementsByClassName('price');
     for (let i = 0; i < prices.length; i++) {
         let str = prices[i].innerHTML;
         prices[i].innerHTML = str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1&thinsp;')
     }
-})()
+})();
 
-function toggleSwitch(event) {
-    event.preventDefault();
-}
+/*Select view catalog*/
+    (function () {
+        const TOGGlE = document.querySelector(".js-toggle");
+        const CATALOG = document.querySelector(".catalog");
+        let toggleSwitch = function (evt) {
+        let btn = evt.target.closest('.js-toggle__btn');
+            if(btn){
+                console.log(evt.target.closest('.js-toggle__btn'));
+                TOGGlE.querySelectorAll('.js-toggle__btn').forEach(btn){
+                    btn.classList.remove('active')
+                }
+                btn.classList.add('active');
+                if(btn.dataset.view){
+                    CATALOG.classList.toggle(btn.dataset.view)};
+            }
+        };
+        TOGGlE.addEventListener('click',toggleSwitch);
+    })();
 
-
-function toggle(toggleParent) {
-    let buttons = document.querySelectorAll(toggleParent + "__btn");
-    for(let i=0; i<buttons.length; i++){
-        buttons[i].addEventListener('click',toggleSwitch);
-    }
-}
 
 /** Colls for catalog-top Depends on jquery**/
 //= ../js/liColumns.js
@@ -158,8 +166,6 @@ function changeToggle() {
 var toggleButtons = document.querySelectorAll("js-toggle")
 }
 catalogTop();
-// Переключения внешнего вида в каталоге
-toggle('.js-toggle');
 
 
 
