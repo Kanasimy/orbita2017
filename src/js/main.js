@@ -3,14 +3,14 @@
  */
 
 /** Format Price**/
-
-function formatPrice() {
-    var prices = document.getElementsByClassName('price');
-    for (var i = 0; i < prices.length; i++) {
-        var str = prices[i].innerHTML;
+/* Add $1&thinsp */
+(function () {
+    let prices = document.getElementsByClassName('price');
+    for (let i = 0; i < prices.length; i++) {
+        let str = prices[i].innerHTML;
         prices[i].innerHTML = str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1&thinsp;')
     }
-}
+})()
 
 function toggleSwitch(event) {
     event.preventDefault();
@@ -160,7 +160,6 @@ function catalogTop() {
 function changeToggle() {
 var toggleButtons = document.querySelectorAll("js-toggle")
 }
-formatPrice();
 catalogTop();
 // Переключения внешнего вида в каталоге
 toggle('.js-toggle');
@@ -285,18 +284,4 @@ window.onresize = function () {
         width: '100%',
         size: 4
     });
-    //обрезка длинного заголовка
-    var headerItem = document.getElementsByClassName('catalog-item__header');
-    for (var i = 0; i < headerItem.length; i++) {
-        var stringHead = headerItem[i].innerHTML;
-        headerItem[i].innerHTML = stringHead.limit(160);
-    }
-
-    //модальные окна
-
-
-
-
-
-
 })(jQuery);
