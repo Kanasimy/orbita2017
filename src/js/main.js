@@ -14,13 +14,11 @@
 
 function toggleSwitch(event) {
     event.preventDefault();
-    console.log(this)
 }
 
 
 function toggle(toggleParent) {
     let buttons = document.querySelectorAll(toggleParent + "__btn");
-    console.log(buttons);
     for(let i=0; i<buttons.length; i++){
         buttons[i].addEventListener('click',toggleSwitch);
     }
@@ -54,7 +52,7 @@ function catalogTop() {
         event.stopPropagation();
 
         /** Ищем какое подменю открыть**/
-        if (idElement == 'catalog-top') {console.log("Не нашли ни одного подменю");
+        if (idElement == 'catalog-top') {
 }
         while (idElement != 'catalog-top') {
             nameElement = target.className;
@@ -145,7 +143,6 @@ function catalogTop() {
     function closeSubMenu() {
         var subMenu = document.getElementsByClassName('catalog-top__sub-menu');
         var nameElementActive = document.getElementsByClassName('catalog-top__item-active');
-        console.log(nameElementActive[i]);
         for (var i = 0; i < subMenu.length; i++) {
             subMenu[i].style.display = 'none';
         }
@@ -207,7 +204,6 @@ window.onresize = function () {
     function top(elem) {
         $(elem).click(function(event){
             var positionMenu = $(event.target.hash)[0].offsetTop;
-            console.log($(event.target.hash));
             $('html, body').animate({
                 scrollTop: positionMenu
             }, 900);
