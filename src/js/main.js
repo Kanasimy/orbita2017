@@ -17,16 +17,17 @@
         const TOGGlE = document.querySelector(".js-toggle");
         const CATALOG = document.querySelector(".catalog");
         let toggleSwitch = function (evt) {
-        let btn = evt.target.closest('.js-toggle__btn');
+            let btn = evt.target.closest('.js-toggle__btn');
+            let removeClasses = function (btn) {
+                btn.classList.remove('active');
+                if(btn.dataset.view){CATALOG.classList.remove(btn.dataset.view);}
+            }
             if(btn){
-                console.log(evt.target.closest('.js-toggle__btn'));
-                TOGGlE.querySelectorAll('.js-toggle__btn').forEach(btn){
-                    btn.classList.remove('active')
-                }
+                TOGGlE.querySelectorAll('.js-toggle__btn').forEach(removeClasses);
                 btn.classList.add('active');
                 if(btn.dataset.view){
-                    CATALOG.classList.toggle(btn.dataset.view)};
-            }
+                    CATALOG.classList.add(btn.dataset.view)
+                }}
         };
         TOGGlE.addEventListener('click',toggleSwitch);
     })();
@@ -183,7 +184,7 @@ window.onresize = function () {
         });
         updateColl($('.list_coll'))
     }, 500);
-}
+};
 //= ../js/libs/owl.carousel.min.js
 //= ../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js
 //= ../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js

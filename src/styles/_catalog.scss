@@ -5,9 +5,15 @@
     justify-content: flex-end;
     gap: $padding-base-horizontal;
     margin: ($padding-large-vertical*2) 0 0 0;
+    .active {
+      stroke: $red;
+      stroke-width:2px;
+    }
     button {
       border:0px;
       background: none;
+      stroke: $textColor;
+      stroke-width:2px;
     }
   }
   &-header {
